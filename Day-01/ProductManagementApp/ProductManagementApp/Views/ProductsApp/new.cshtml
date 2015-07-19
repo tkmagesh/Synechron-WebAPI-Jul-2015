@@ -1,0 +1,59 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="/public/scripts/angular.js"></script>
+    
+    <script>
+        angular
+            .module("myApp", [])
+            .run(function($http, $rootScope) {
+                $rootScope.products = [];
+                $rootScope.getProducts = function() {
+                    $http
+                        .get("/api/products")
+                        .then(function(response) {
+                            $rootScope.products = response.data;
+                        });
+                }
+            });
+
+    </script>
+</head>
+<body ng-app="myApp">
+    <h1>Products</h1>
+    <div>
+        <input type="hidden" id="hidProductId" ng-model="product.Id" />
+        <input type="text" id="txtName" ng-model="product.Name"/>
+        <input type="text" id="txtCost" ng-model="product.Cost"/>
+        <input type="text" id="txtUnits" ng-model="product.Units"/>
+        <input type="button" value="Save" id="btnSave"/>
+    </div>
+    <input type="button" name="name" value="Get Products" id="btnGetProducts" ng-click="getProducts()" />
+    <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Units</th>
+            </tr>
+            
+            <tr ng-repeat="product in products">
+                <td class="product" >{{product.Id}}</td>
+                <td>{{product.Name}}</td>
+                <td>{{product.Cost}}</td>
+                <td>{{product.Units}}</td>
+                <td>
+                    <input type="button" value="Edit" class="btnEdit" /></td>
+            </tr>
+            
+        </table>
+    
+</body>
+</html>

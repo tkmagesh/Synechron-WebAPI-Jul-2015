@@ -1,0 +1,17 @@
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\DataServicesDemo.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\DataServicesDemo.pdb
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\EntityFramework.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Edm.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.OData.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Services.Client.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Services.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\System.Spatial.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\EntityFramework.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Edm.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.OData.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Services.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\Microsoft.Data.Services.Client.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\bin\System.Spatial.xml
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\obj\Debug\DataServicesDemo.csprojResolveAssemblyReference.cache
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\obj\Debug\DataServicesDemo.dll
+D:\Training\Synechron-WebAPI-Jul-2015\Day-02\DataServicesDemo\DataServicesDemo\obj\Debug\DataServicesDemo.pdb

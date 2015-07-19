@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="/public/scripts/jquery-1.11.3.js"></script>
+    <script src="/public/scripts/handlebars-v3.0.3.js"></script>
+
+    <script id="productListTemplate" type="text/template">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Units</th>
+            </tr>
+            {{#each products}}
+            <tr data-id="{{Id}}">
+                <td class="product" >{{Id}}</td>
+                <td>{{Name}}</td>
+                <td>{{Cost}}</td>
+                <td>{{Units}}</td>
+                <td>
+                    <input type="button" value="Edit" class="btnEdit" /></td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+    <script>
+        $(function () {
+            var templateHTML = $("#productListTemplate").html();
+            var template = Handlebars.compile(templateHTML);
+
+            $("#btnGetProducts").click(getProducts);
+
+            $("#btnSave").click(function () {
+                var product = populateData();
+                
+                if (!product.Id) {
+                    window.jqXhr = $.ajax({
+                        method: "POST",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify(product),
+                        url: "/api/products/"
+                    }).always(function (data) {
+                        console.log(jqXhr.getResponseHeader('Location'));
+                        getProducts();
+                    });
+                    
+                } else {
+                    $.ajax({
+                        method: "PUT",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify(product),
+                        url: "/api/products/" + product.Id,
+                        success: function() {
+                            getProducts();
+                        }
+                    });
+                }
+            });
+            function populateData() {
+                var product = {
+                    Id : $("#hidProductId").val(),
+                    Name: $("#txtName").val(),
+                    Cost: parseInt($("#txtCost").val()),
+                    Units: parseInt($("#txtUnits").val())
+                };
+                return product;
+            }
+
+            $("#result").on("click", ".btnEdit", function() {
+                var productId = parseInt($(this).parents("tr[data-id]").attr("data-id"), 10);
+                var product = _products.filter(function (product) { return product.Id === productId; })[0];
+                $("#hidProductId").val(product.Id);
+                $("#txtName").val(product.Name);
+                $("#txtCost").val(product.Cost);
+                $("#txtUnits").val(product.Units);
+            });
+            var _products = [];
+            function getProducts() {
+                $.getJSON("/api/products", function (products) {
+                    _products = products;
+                    $("#result").html(template({ products: _products }));
+                    $("#hidProductId").val('');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Products</h1>
+    <div>
+        <input type="hidden" id="hidProductId" />
+        <input type="text" id="txtName"/>
+        <input type="text" id="txtCost" />
+        <input type="text" id="txtUnits"/>
+        <input type="button" value="Save" id="btnSave"/>
+    </div>
+    <input type="button" name="name" value="Get Products" id="btnGetProducts" />
+    <div id="result"></div>
+</body>
+</html>
